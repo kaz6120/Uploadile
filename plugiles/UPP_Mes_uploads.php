@@ -123,7 +123,7 @@ if(isset($_POST['supprimer']) AND $_POST['supprimer'] != NULL)
 		$url = 'gestionnaire.php';
 	else
 		$url = PLUGIN_URL;
-	if($erreur == 1)
+	if($erreur == 0)
 		redirect($url, $lang_uploadile['delete_success']);
 	else
 		redirect($url, $lang_uploadile['err_delete']);
