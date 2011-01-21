@@ -349,7 +349,7 @@ if(isset($_POST['supprimer']) AND $_POST['supprimer'] != NULL)
 			foreach($files as $image)
 				$upload = $upload + filesize($image);
 		}
-		$db->query('UPDATE '.$db->prefix.'users SET upload=\''.$upload.'\' WHERE id='.$pun_user['id']) or error(sprintf($lang_uploadile['err_insert'],$conf_name), __FILE__, __LINE__, $db->error());
+		$db->query('UPDATE '.$db->prefix.'users SET upload=\''.$db->escape($upload).'\' WHERE id='.$pun_user['id']) or error(sprintf($lang_uploadile['err_insert'],$conf_name), __FILE__, __LINE__, $db->error());
 	}
 
 		$url = PLUGIN_URL;
@@ -430,7 +430,7 @@ elseif(isset($_FILES['fichier']) AND $_FILES['fichier'] != NULL AND $_FILES['fic
 								imagedestroy($destination);
 						}
 					}
-					$db->query('UPDATE '.$db->prefix.'users SET upload=\''.$upload.'\' WHERE id='.$pun_user['id']) or error(sprintf($lang_uploadile['err_insert'],$conf_name), __FILE__, __LINE__, $db->error());
+					$db->query('UPDATE '.$db->prefix.'users SET upload=\''.$db->escape($upload).'\' WHERE id='.$pun_user['id']) or error(sprintf($lang_uploadile['err_insert'],$conf_name), __FILE__, __LINE__, $db->error());
 					redirect(PLUGIN_URL, $lang_uploadile['modif_success']);
 				}
 				else
