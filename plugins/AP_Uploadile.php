@@ -232,7 +232,7 @@ if(isset($_POST['supprimer']) AND $_POST['supprimer'] != NULL)
 	}
 	
 	$url = 'admin_loader.php?plugin=AP_Uploadile.php';
-	if($erreur == '1')
+	if($erreur == 0)
 		redirect($url, $lang_uploadile['delete_success']);
 	else
 		redirect($url, $lang_uploadile['err_delete']);
