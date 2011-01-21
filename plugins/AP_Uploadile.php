@@ -227,7 +227,7 @@ if(isset($_POST['supprimer']) AND $_POST['supprimer'] != NULL)
 				foreach($files as $image)
 					$upload = $upload + filesize($image);
 			}
-			$db->query('UPDATE '.$db->prefix.'users SET upload=\''.$upload.'\' WHERE id='.$donnees['id']) or error(sprintf($lang_uploadile['err_insert'],$conf_name), __FILE__, __LINE__, $db->error());
+			$db->query('UPDATE '.$db->prefix.'users SET upload=\''.$db->escape($upload).'\' WHERE id='.$donnees['id']) or error(sprintf($lang_uploadile['err_insert'],$conf_name), __FILE__, __LINE__, $db->error());
 		}
 	}
 	
