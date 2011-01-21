@@ -19,7 +19,7 @@
 ##          Affects DB:  Yes
 ##
 ##             To note:  Functions move_uploaded_file(), mkdir(), opendir() must 
-##                       be disabled in your Website and this one must accept
+##                       be enabled in your Website and this one must accept
 ##                       resizing pictures. (facultative)
 ##
 ##          DISCLAIMER:  Please note that "mods" are not officially supported by
